@@ -60,8 +60,8 @@ int MazeCreate::GetCreateCount() {
 void MazeCreate::GetRandSeed(int _maze[height][width],RandState *rand_state) {
 	do {
 		std::srand(time(NULL));
-		rand_state->rand_y = rand() % (height - 3) + 1;
-		rand_state->rand_x = rand() % (width - 3) + 1;
+		rand_state->rand_y = rand() % (height - 2) + 1;
+		rand_state->rand_x = rand() % (width - 2) + 1;
 		if (rand_state->rand_y % 2 != 0)
 			rand_state->rand_y++;
 		if (rand_state->rand_x % 2 != 0)
@@ -114,7 +114,7 @@ void MazeCreate::MinusCreateCount() {
 
  /**
  * @brief 種から壁を伸ばす関数
- * @brief 壁に接続するまで再起し続ける
+ * @brief 壁に接続するまで再帰し続ける
  * @brief 四方が自身が生成途中の壁の場合 vector を用いて壁を伸ばせる座標まで戻る
  */
 int MazeCreate::ExtendWall(int x, int y, int _maze[height][width],std::vector<int>& move_x, std::vector<int>& move_y)

@@ -5,6 +5,7 @@
 #include<ctime>
 #include<cstdlib>
 #include<vector>
+#include<Windows.h>
 
 enum MazeWall {
 	NO,			//! 何もない（通路）
@@ -14,7 +15,6 @@ enum MazeWall {
 };
 
 enum Direction {
-	 NO_D=-1,
 	 UP,
 	 RIGHT,
 	 DOWN,
@@ -22,7 +22,7 @@ enum Direction {
 };
 
 const int width = 15;
-const int height = 15;
+const int height = 9;
 
 typedef struct {
 	int rand_x = 0;
@@ -33,7 +33,6 @@ class MazeCreate {
 private:
 	int m_seed_count = 0;
 	int m_create_count = 0;
-	Direction m_create_direction = NO_D;
 public:
 	int GetSeedCount();
 	int GetCreateCount();
